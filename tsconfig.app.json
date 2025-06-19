@@ -1,12 +1,66 @@
+// 业务代码类型检查
 {
+  // 继承了 Vue 官方提供的 DOM 环境基础配置
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
-  "exclude": ["src/**/__tests__/*"],
+  // 指定了哪些文件需要被 TypeScript 处理
+  "include": [
+    "env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "build/**/*.ts",
+    "build/**/*.d.ts",
+    "mock/**/*.ts",
+  ],
+  // 明确排除不需要编译的文件
+  "exclude": [
+    "src/**/__tests__/*",
+    "node_modules",
+    "dist",
+    "**/*.js"
+  ],
+  // 核心编译器选项
   "compilerOptions": {
+    "target": "esnext", // 编译到最新 ES 标准
+    "module": "esnext", // 使用 ESM 模块
+    "moduleResolution": "node", // Node.js 风格的模块解析
+    "strict": true, // 启用所有严格检查
+    "forceConsistentCasingInFileNames": true, // 强制要求文件引用的文件名大小写必须与实际文件系统保持一致
+    "allowSyntheticDefaultImports": true, // 兼容 CommonJS 默认导出
+    "strictFunctionTypes": true, // 严格函数类型检查
+    "allowJs": true,
+    "sourceMap": true, // 生成 sourcemap
+    "esModuleInterop": true, // 改进 ESM/CommonJS 互操作性
+    "resolveJsonModule": true, // 允许导入 JSON
+    "noUnusedLocals": true, // 检测并禁止​​未使用的局部变量
+    "noUnusedParameters": true, // 检测并禁止​​未使用的函数参数​​
+    // 包含 DOM 和 ES 最新 API 类型
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    // 包含 Vite 环境类型
+    "types": [
+      "vite/client"
+    ],
+    // 类型声明查找路径
+    "typeRoots": [
+      "./node_modules/@types/",
+      "./types",
+      "./node_modules"
+    ],
+    "noImplicitAny": true, // 不允许隐式 any（灵活性妥协）
+    "skipLibCheck": true, // 跳过库类型检查（提升编译速度）
+    // 启用增量编译缓存, 提升后续编译速度
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
-
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": [
+        "src/*"
+      ]
     }
   }
 }

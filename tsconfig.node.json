@@ -1,5 +1,9 @@
+// 工具配置文件类型检查
 {
+  // 继承自 @tsconfig/node22 的预设配置，包含针对 Node.js 22.x 的推荐选项
   "extends": "@tsconfig/node22/tsconfig.json",
+  // 仅对项目中的​​工具配置文件​​进行类型检查（如 .ts 或 .mts 后缀的文件）。
+  // 不包含业务代码（如 src/**/*），因为这些文件通常由 tsconfig.app.json 处理。
   "include": [
     "vite.config.*",
     "vitest.config.*",
@@ -9,11 +13,14 @@
     "eslint.config.*"
   ],
   "compilerOptions": {
-    "noEmit": true,
-    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
-
-    "module": "ESNext",
-    "moduleResolution": "Bundler",
-    "types": ["node"]
+    "target": "esnext", // 使用最新的 ES 标准
+    "noEmit": true, // 不生成编译输出文件
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo", // 启用增量编译缓存，提升后续检查速度。
+    "module": "ESNext", // 使用 ESM 模块
+    "moduleResolution": "Bundler", // Bundler 模式允许混合使用 import/require
+    // 包含 Node.js 类型声明, 确保能识别 process、__dirname 等 Node.js 全局变量
+    "types": [
+      "node"
+    ]
   }
 }
