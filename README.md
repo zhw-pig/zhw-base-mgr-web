@@ -1,6 +1,6 @@
 # zhw-base-mgr-web
 
-> 微前端基座
+> 微前端基座-micro-app
 
 ## node版本
 
