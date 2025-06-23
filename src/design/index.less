@@ -1,0 +1,61 @@
+@import url('transition/index.less');
+@import url('var/index.less');
+@import url('public.less');
+@import url('ant/index.less');
+@import url('./theme.less');
+@import url('./entry.css');
+
+input:-webkit-autofill {
+  box-shadow: 0 0 0 1000px #fff inset !important;
+}
+
+:-webkit-autofill {
+  transition: background-color 5000s ease-in-out 0s !important;
+}
+
+html {
+  overflow: hidden;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  line-height: 1.5715;
+
+  &.color-weak {
+    filter: invert(80%);
+  }
+
+  &.gray-mode {
+    filter: grayscale(100%);
+    filter: progid:dximagetransform.microsoft.basicimage(grayscale=1);
+  }
+}
+
+body {
+  overflow: visible !important;
+  overflow-x: hidden !important;
+}
+
+a:focus,
+a:active,
+button,
+div,
+svg,
+span {
+  outline: none !important;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}

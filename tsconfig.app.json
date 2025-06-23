@@ -52,7 +52,7 @@
       "./types",
       "./node_modules"
     ],
-    "noImplicitAny": true, // 不允许隐式 any（灵活性妥协）
+    "noImplicitAny": false, // 允许隐式 any（灵活性妥协）
     "skipLibCheck": true, // 跳过库类型检查（提升编译速度）
     // 启用增量编译缓存, 提升后续编译速度
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",

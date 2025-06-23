@@ -22,13 +22,19 @@ export default defineConfigWithVueTs(
   skipFormatting,
   {
     rules: {
+      // vue组件名可以不是多个单词
       'vue/multi-word-component-names': 'off',
+      // 强制vue文件标签顺序
       'vue/block-order': [
         'error',
         {
           order: ['template', 'script', 'style'],
         },
       ],
+      // 强制无分号
+      semi: ['error', 'never'],
+      // 可以使用隐式any
+      '@typescript-eslint/no-explicit-any': 'off',
     },
   },
 )

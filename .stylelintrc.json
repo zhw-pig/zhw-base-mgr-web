@@ -1,19 +1,19 @@
 {
   "root": true,
   "plugins": ["stylelint-order"],
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-standard-scss",
-    "stylelint-config-recommended-vue",
-    "stylelint-order"
-  ],
+  "extends": ["stylelint-config-standard", "stylelint-config-recommended-vue"],
   "overrides": [
     {
       "files": ["**/*.vue"],
       "customSyntax": "postcss-html"
+    },
+    {
+      "files": ["**/*.less"],
+      "customSyntax": "postcss-less"
     }
   ],
   "rules": {
+    "at-rule-prelude-no-invalid": null,
     "color-hex-length": "short",
     "color-no-invalid-hex": true,
     "color-function-notation": "modern",
@@ -30,23 +30,7 @@
         "ignorePseudoElements": ["v-deep", "deep"]
       }
     ],
-    "at-rule-no-unknown": [
-      true,
-      {
-        "ignoreAtRules": [
-          "tailwind",
-          "apply",
-          "variants",
-          "responsive",
-          "screen",
-          "function",
-          "if",
-          "each",
-          "include",
-          "mixin"
-        ]
-      }
-    ],
+    "at-rule-no-unknown": null,
     "no-empty-source": null,
     "named-grid-areas-no-invalid": null,
     "no-descending-specificity": null,
@@ -58,6 +42,7 @@
       }
     ],
     "unit-no-unknown": [true, { "ignoreUnits": ["rpx"] }],
+    "selector-class-pattern": null,
     "order/order": [
       [
         "dollar-variables",
